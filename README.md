@@ -1,25 +1,37 @@
-## The Golden Rule: 
+## Plan for From Scratch List / Detail using Supabase
 
-🦸 🦸‍♂️ `Stop starting and start finishing.` 🏁
+### Supabase Setup
 
-If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
+1. Need to setup your supabase database -- add your table with you <thing> -- remember that object keys are columns, and object values are rows
+1. Update the fetch-utils.js with your supabase URL and key
+1. ACP
 
-## Making a plan
+### Design Your List Page
 
-1) **Make a drawing of your app. Simple "wireframes"**
-1) **Once you have a drawing, name the HTML elements you'll need to realize your vision**
-1) **For each HTML element ask: Why do I need this?** 
-1) **Once we know _why_ we need each element, think about how to implement the "Why" as a "How"**
-1) **Find all the 'events' (user clicks, form submit, on load etc) in your app. Ask one by one, "What happens when" for each of these events. Does any state change?**
-1) **Think about how to validate each of your features according to a Definition of Done**
-1) **Consider what features _depend_ on what other features. Use this dependency logic to figure out what order to complete tasks.**
+1. Design list item -- add the HTMl elements that you want to display on the list
+1. TDD my render function for that list item
+1. ACP
 
-Additional considerations:
-- Ask: which of your HTML elements need to be hard coded, and which need to be dynamically generated?
-- Consider your data model. 
-  - What kinds of objects (i.e., Dogs, Friends, Todos, etc) will you need? 
-  - What are the key/value pairs? 
-  - What arrays might you need? 
-  - What needs to live in a persistence layer?
-- Is there some state we need to initialize?
-- Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be resused?)
+### Connect Render Function to Data and Display (list page)
+
+1. Add fetchItems function to fetchUtils.js
+1. Update your app.js
+    1. Get the data from supabase (using fetchItems function) (console.log to make sure the data is coming back)
+    1. loop through each item from supabase and use the render function
+    1. append the html to the page
+1. ACP
+
+### Design Your Detail Page
+
+1. Design detail page -- add the HTMl elements that you want to display on the list
+1. TDD render function for the detail
+1. ACP
+
+### Connect Render Function to Data and Display (detail page)
+
+1. Add fetchItemById function to fetchUtils
+1. Update your detail.js
+    1. Get the data from supabase (using fetchItemsById function) (console.log to make sure the data is coming back)
+    1. render the item using render function
+    1. append the html to the page
+1. ACP
