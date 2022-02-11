@@ -8,6 +8,11 @@ export async function fetchToys() {
     return checkError(resp);
 }
 
+export async function fetchItemByID(id) {
+    const resp = await client.from('toys').select('*').eq('id', id).single();
+    return checkError(resp);
+}
+// console.log(await fetchItemByID(2));
 
 function checkError({ data, error }) {
     return error ? console.error(error) : data;
