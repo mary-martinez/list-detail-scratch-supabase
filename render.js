@@ -19,3 +19,24 @@ export function renderToy(toy) {
     a.append(div);
     return (a);
 }
+
+export function renderToyDetails(toy) {
+    const div = document.createElement('div');
+    div.classList.add('render-details');
+
+    const h1 = document.createElement('h1');
+    h1.classList.add('toy-name');
+    h1.textContent = `${toy.name} the ${toy.type}`;
+
+    const img = document.createElement('img');
+    img.setAttribute('id', `${toy.name.toLowerCase()}-img`);
+    img.classList.add('toy-detail-image');
+    img.src = `..${toy.image}`;
+
+    const p = document.createElement('p');
+    p.classList.add('toy-description');
+    p.textContent = `${toy.name} is a ${toy.colors} ${toy.type.toLowerCase()}, perfect for ${toy.strength}!`;
+
+    div.append(h1, img, p);
+    return div;
+}

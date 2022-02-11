@@ -7,7 +7,7 @@ export async function fetchToys() {
     const resp = await client.from('toys').select('*');
     return checkError(resp);
 }
-// console.log(await fetchToys());
+
 
 function checkError({ data, error }) {
     return error ? console.error(error) : data;

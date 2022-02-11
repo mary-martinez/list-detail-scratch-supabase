@@ -1,6 +1,6 @@
 // IMPORT MODULES under test here:
 // import { example } from '../example.js';
-import { renderToy } from '../render.js';
+import { renderToy, renderToyDetails } from '../render.js';
 const test = QUnit.test;
 
 test('renderToy should return an a wrapped div with an h2 and an image', (expect) => {
@@ -14,8 +14,8 @@ test('renderToy should return an a wrapped div with an h2 and an image', (expect
         id: '1',
         name: 'Broccoli',
         type: 'Unicorn',
-        colors: 'pink, blue, and purple',
-        strength: 'bathtime bubbles',
+        colors: 'pink, blue, and white',
+        strength: 'bath time bubbles',
         image: '/assets/broccoli.png'
     });
 
@@ -23,3 +23,18 @@ test('renderToy should return an a wrapped div with an h2 and an image', (expect
     // Make assertions about what is expected versus the actual result
     expect.equal(actual.outerHTML, expected);
 });
+
+test('renderToyDetails should return a div with an h1, an img, and a p tag description', (expect) => {
+    const expected = `<div class="render-details"><h1 class="toy-name">Broccoli the Unicorn</h1><img id="broccoli-img" class="toy-detail-image" src="../assets/broccoli.png"><p class="toy-description">Broccoli is a pink, blue, and white unicorn, perfect for bath time bubbles!</p></div>`;
+
+    const actual = renderToyDetails({
+        id: '1',
+        name: 'Broccoli',
+        type: 'Unicorn',
+        colors: 'pink, blue, and white',
+        strength: 'bath time bubbles',
+        image: '/assets/broccoli.png'
+    });
+
+    expect.equal(actual.outerHTML, expected);
+})
