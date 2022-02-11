@@ -37,4 +37,4 @@ test('renderToyDetails should return a div with an h1, an img, and a p tag descr
     });
 
     expect.equal(actual.outerHTML, expected);
-})
+});
